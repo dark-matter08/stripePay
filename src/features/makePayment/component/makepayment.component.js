@@ -9,6 +9,17 @@ const stripeObject = createStripe(STRIPE_KEY);
 import { cardTokenRequest } from '../../../services/stripe/stripe.service';
 import axios from 'axios';
 import {decode as atob, encode as btoa} from 'base-64'
+const FORMURLENCODED = require('form-urlencoded');
+
+
+async function _parseJSON(token) {
+    if (token._bodyInit == null) {
+        return token;
+    } else {
+        const body = await token.json();
+        return body;
+    }
+}
 
 export const MakePayment = ({setLoading, setToken, cardNumber, expiryMonth, expiryYear, cvc, clientName, amount, token, currency}) => {
     const BASE_URL = 'https://api.stripe.com'
@@ -19,14 +30,16 @@ export const MakePayment = ({setLoading, setToken, cardNumber, expiryMonth, expi
         fetch(BASE_URL + '/v1/payment_intents', {
         method: 'POST',
         headers: {
+            'Accept': 'application/json',
             'Content-Type': 'application/x-www-form-urlencoded',
-            'Authorization': 'Basic ' + btoa(STRIPE_SECRET + ':')
+            'Authorization': 'Bearer ' + STRIPE_SECRET,
+            // 'Authorization': 'Basic ' + btoa(STRIPE_SECRET + ':')
         },
         body: payment_dets_form
         }).then(result => {
             console.log("========= Payment Intent Restult =============")
             setLoading(false);
-            console.log(result.statusText)
+            console.log(_parseJSON(result))
             return result
         }).catch(err => {
             console.log("========= Payment Intent Error =============")
