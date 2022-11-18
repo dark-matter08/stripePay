@@ -1,0 +1,56 @@
+{
+  "name": "stripePay",
+  "displayName": "stripePay"
+}
+
+
+{
+  "_bodyBlob": {
+    "_data": {
+      "__collector": [Object
+      ],
+      "blobId": "097F970D-1601-4743-983C-1D14A5EB3270",
+      "name": "payment_intents.json",
+      "offset": 0,
+      "size": 1422,
+      "type": "application/json"
+    }
+  },
+  "_bodyInit": {
+    "_data": {
+      "__collector": [Object
+      ],
+      "blobId": "097F970D-1601-4743-983C-1D14A5EB3270",
+      "name": "payment_intents.json",
+      "offset": 0,
+      "size": 1422,
+      "type": "application/json"
+    }
+  },
+  "bodyUsed": false,
+  "headers": {
+    "map": {
+      "access-control-allow-credentials": "true",
+      "access-control-allow-methods": "GET, POST, HEAD, OPTIONS, DELETE",
+      "access-control-allow-origin": "*",
+      "access-control-expose-headers": "Request-Id, Stripe-Manage-Version, X-Stripe-External-Auth-Required, X-Stripe-Privileged-Session-Required",
+      "access-control-max-age": "300",
+      "cache-control": "no-cache, no-store",
+      "content-length": "1422",
+      "content-type": "application/json",
+      "date": "Fri, 18 Nov 2022 09:53:15 GMT",
+      "idempotency-key": "2ceb5bde-3413-4906-9d11-ae070854c43e",
+      "original-request": "req_X4ArKpmvxBpxt0",
+      "request-id": "req_X4ArKpmvxBpxt0",
+      "server": "nginx",
+      "strict-transport-security": "max-age=63072000; includeSubDomains; preload",
+      "stripe-should-retry": "false",
+      "stripe-version": "2020-03-02"
+    }
+  },
+  "ok": true,
+  "status": 200,
+  "statusText": "",
+  "type": "default",
+  "url": "https://api.stripe.com/v1/payment_intents"
+}
