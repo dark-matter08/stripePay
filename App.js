@@ -38,10 +38,11 @@ const App = () => {
   const [expiryYear, setExpiryYear] = useState('2027')
   const [cvc, setCvc] = useState('225')
   const [clientName, setClientName] = useState('Nde Lucien')
-  const [amount, setAmount] = useState(1000)
+  const [amount, setAmount] = useState(2000)
   const [currency, setCurrency] = useState('usd')
   const [token, setToken] = useState(null)
   const [loading, setLoading] = useState(false)
+  const [error, setError] = useState(null)
 
 
   
@@ -61,11 +62,12 @@ const App = () => {
         <Text style={{fontSize: 17, fontWeight: 'bold', marginTop: 10}} >Card Number: {cardNumber}</Text>
         <Text style={{fontSize: 17, fontWeight: 'bold', marginTop: 10}}>Card Expiry Date: {expiryMonth}/{expiryYear}</Text>
         <Text style={{fontSize: 17, fontWeight: 'bold', marginTop: 10}} >Card CVC: {cvc}</Text>
-        <Text style={{fontSize: 17, fontWeight: 'bold', marginTop: 10}} >Charge Amount: {currency} {amount}</Text>
+        <Text style={{fontSize: 17, fontWeight: 'bold', marginTop: 10}} >Charge Amount: {currency} {amount/100}</Text>
 
         <View style={{alignItems: 'center', marginTop: 25}}>
           <Text>========= Results ==========</Text>
           {token && (<Text>Token: {token}</Text>)}
+          {error && (<Text>Token: {error}</Text>)}
 
 
           <View style={{alignItems: 'center', marginTop: 25}}>
@@ -86,7 +88,7 @@ const App = () => {
         clientName  = {clientName}
         cvc = {cvc}
         amount = {amount}
-        token = {token}
+        setError = {setError}
         currency = {currency}
       />
       
